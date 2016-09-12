@@ -1,3 +1,4 @@
+#!groovy
 def repo = "curl-wrapper"
 def dockerUser = "discoenv"
 
