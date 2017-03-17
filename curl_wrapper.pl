@@ -56,7 +56,7 @@ sub fetch_file {
 
     # Build the command.
     my @cmd = (
-        CURL, '-k', '-L', '-w', '%{http_code}', '-sSo', $filename, $url
+        CURL, '-g', '-k', '-L', '-w', '%{http_code}', '-sSo', $filename, $url
     );
 
     # Run the command and retrieve the output.
