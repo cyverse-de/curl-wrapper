@@ -56,12 +56,12 @@ sub fetch_file {
 
     # Build the command.
     my @cmd = (
-        CURL, '-g', '-k', '-L', '-w', '%{http_code}', '-sSo', $filename, $url
+        CURL, '--retry', '5', '-g', '-k', '-L', '-w', '%{http_code}', '-sSo', $filename, $url
     );
 
     # Run the command and retrieve the output.
     open my $in, '-|', @cmd
-        or croak "uanble to run curl: $ERRNO";
+        or croak "unable to run curl: $ERRNO";
     my $output = do { local $INPUT_RECORD_SEPARATOR; <$in> };
     close $in
         or croak "curl exited with status code: $CHILD_ERROR";
